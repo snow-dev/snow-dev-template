@@ -3,7 +3,10 @@
 import React from 'react';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
-import { LocalizeProvider } from 'react-localize-redux';
+
+/** Import translations section section **/
+import { addTranslation, initialize, LocalizeProvider } from 'react-localize-redux';
+import translations from '../resources/translations/translations.json';
 
 /** Import component section **/
 import rootReducer from './RootReducer';
@@ -22,6 +25,26 @@ const store = createStore(rootReducer,
 		applyMiddleware(thunk),
 	)
 );
+
+
+const languages = [
+	{ name: 'English',    code: 'en' },
+	{ name: 'Español',    code: 'es' },
+	{ name: 'Portugues',  code: 'pt' },
+];
+
+store.dispatch(initialize({
+		
+		languages,
+		options: {
+			renderToStaticMarkup: false,
+			renderInnerHtml: true,
+			defaultLanguage: 'en'
+		}
+	}
+));
+
+store.dispatch(addTranslation(translations));
 
 /**
  * Compose and wrap everything within providers.
