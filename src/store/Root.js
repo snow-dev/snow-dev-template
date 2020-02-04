@@ -27,23 +27,40 @@ const store = createStore(rootReducer,
 );
 
 
+/**
+ * Here we define our supported languages.
+ * @type {(
+ * {code: string, name: string}|
+ * {code: string, name: string}|
+ * {code: string, name: string})
+ * []}
+ */
 const languages = [
 	{ name: 'English',    code: 'en' },
 	{ name: 'Español',    code: 'es' },
 	{ name: 'Portugues',  code: 'pt' },
 ];
 
+const onMissingTranslation = ({ defaultTranslation }) => defaultTranslation;
+
+
+/**
+ * Once we defined, we need to initialize and pass it to redux store.
+ * Then we enable or default language and some properties.
+ */
 store.dispatch(initialize({
-		
 		languages,
 		options: {
 			renderToStaticMarkup: false,
 			renderInnerHtml: true,
-			defaultLanguage: 'en'
+			defaultLanguage: 'en',
+			onMissingTranslation
 		}
 	}
 ));
-
+/**
+ * Here we load our translations file
+ */
 store.dispatch(addTranslation(translations));
 
 /**

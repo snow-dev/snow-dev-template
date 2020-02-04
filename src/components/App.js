@@ -8,7 +8,7 @@ import React from 'react';
 
 /** Import resources section **/
 import '../resources/styles/App.scss';
-import { Translate } from 'react-localize-redux';
+import LoginContainer from './Login/LoginContainer';
 
 
 
@@ -17,8 +17,8 @@ function App() {
   return (
     <div className="App">
       <h1>This is a @snow-dev production!</h1>
-      <Translate id="home.hello" data={{ name: "Testy McTest" }} />
-      <Translate id="home.today" data={{ date: Date.now() }} />
+      <LoginContainer />
+      
     </div>
   );
 }

@@ -1,7 +1,8 @@
 {
   "home": {
-    "hello"   : ["Konichiwa ${name}", "Hola ${name}", "Ola ${name}"],
-    "today"   : ["Today ${date}", "Hoy ${date}", "Hoy ${date}"]
-
+    "hello"         : [ "Hello", "Hola", "Ola" ]
+  },
+  "login": {
+    "isRequesting"  : [ "Is requesting", "Solicitando", "No translation" ]
   }
 }
